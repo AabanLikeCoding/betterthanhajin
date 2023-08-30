@@ -1,0 +1,1171 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;   /*we set this in px , because objects' font size that we will set later will be in rem and it will be 1 rem = 12px so it will be adjustable*/
+
+}
+:root{
+    --GameTextColor :  #EFD469 ; 
+    --infoColor :  #d23f31 ;
+    --navSize : 1.8em;
+
+    --bannerBackground:  url("images/whockMole.png") ;
+}
+
+
+body{
+
+    font-family: 'VT323', monospace;
+
+}
+
+body::before{     /*https://coder-coder.com/background-image-opacity/#:~:text=One%20approach%20you%20can%20use,element%20of%20the%20parent%20element.&text=Since%20the%20pseudo%2Delement%20is,without%20affecting%20the%20text%20content.*/
+    content: "";
+    
+    background:  linear-gradient(rgba(0,0,0,0.5),rgba(13, 19, 192, 0.5)), url("../images/background.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    transform: scaleX(-1);
+
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+
+/********headeeeeeeeeer*********/
+
+header{
+
+
+    position: sticky;
+    background:  linear-gradient(45deg, rgb(51, 51, 154) , red);
+
+
+    top:0;
+    left:0;
+
+    width:100%;
+    min-height: 4rem;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition: top 0.5s;
+
+
+}
+
+.logo{
+    
+
+
+    padding-left: 3em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+
+    
+}
+
+.logo span{ /*the span in header which holds the title name*/
+
+    padding-left: 0.4rem;
+    padding-top: 0.3rem;
+
+    text-align: center;
+    font-weight: bolder;
+    color: var(--GameTextColor );
+    font-size: var( --navSize);
+}
+
+.iconlogo {
+    max-width: 2em; /*use em instead of %*/
+}
+
+.nav{
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    justify-content: space-between;
+
+
+    flex-shrink: 0 ; /*to prevent the flex item from shrinking since the default is flex-shrink:1 */
+
+}
+
+.nav li{
+    padding-left: 3em;
+    list-style: none;
+}
+.nav li a{
+    text-decoration: 0;
+    color: var(--GameTextColor);
+    font-size: var( --navSize);
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    padding:2em 1em ;
+
+
+}
+
+
+.nav li:hover a{
+
+    background-color: rgb(227, 160, 36);
+    color: var(--GameTextColor );
+}
+
+
+.nav .boardLogo{
+    padding-top: 0.4em;
+    position: relative;  /*because z-index needs a position property rather than static */
+    border:0;
+    z-index: 10;
+}
+
+
+/*when clicking boardlogo icon*/
+
+.boardINFO{
+
+    position: fixed;
+    display: none;
+    color : var( --infoColor);
+    font-size:  var(  --navSize);
+    flex-basis: 10em;
+    /*display: flex;*/
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+
+    inset: 0 0 0 70%;
+    background: var(--GameTextColor); 
+
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.boardINFO[data-visible="true"]{
+    transform: translateX(0%);
+    display: flex;
+}
+.boardINFO h2{
+    font-size:  var(  --navSize);
+    text-align: center;
+
+}
+
+.boardSign{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 2em;
+}
+.boardSign li{
+    color : var( --infoColor);
+    font-size:  var(  --navSize);
+    text-decoration: none;
+    text-align: center;
+}
+.boardSign li a{
+    text-decoration: none;
+    color : var( --infoColor);
+    font-size:  var(  --navSize);
+
+}
+
+.boardSign li:hover a{
+    background-color: rgb(227, 160, 36);
+    color: var(--GameTextColor );
+
+}
+
+
+
+
+
+
+/*Banneeeeeeeeeeer*/
+
+
+.banner{
+    position: relative;
+    width :100%;
+    min-height: 100vh;
+    padding: 0 5em;
+    display: flex;
+    gap: 2em;
+
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.banner::before {     /*https://coder-coder.com/background-image-opacity/#:~:text=One%20approach%20you%20can%20use,element%20of%20the%20parent%20element.&text=Since%20the%20pseudo%2Delement%20is,without%20affecting%20the%20text%20content.*/
+    content: "";
+    
+    background-image: var(--bannerBackground);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  
+
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.25;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+.banner .context {
+
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.banner .context #gameTitle{
+    color : var(--GameTextColor);
+    font-size:  4em;
+    letter-spacing: 0.1em;
+}
+
+.banner .context .gameInfo{
+    padding-top: 0.4em;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    color : var(--GameTextColor);
+}
+.gameInfo span {
+
+    color : rgb(51, 71, 246);
+    font-size:  var(  --navSize);
+    font-weight: bolder;
+
+}
+
+#gameDes{
+    padding-top: 0.4em;
+    color : rgb(246, 51, 74);
+    font-size:  var(  --navSize);
+    font-weight: bolder;
+}
+
+
+.context .playButton{
+    padding-top: 0.4em;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    color : var(--GameTextColor);
+    align-items: center;
+}
+
+.playButton a{
+
+    text-decoration: none;
+    text-align: center;
+    color : var( --GameTextColor);
+    font-size: 1.5em;
+    margin-top: 0.1em ;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.playButton a:hover{
+    background-color: rgb(227, 160, 36);
+    color: var(--GameTextColor );
+}
+
+
+.context > h3{
+    padding-top: 0.5em;
+    color: rgb(51, 71, 246);
+    font-size: 1em;
+}
+
+/*********game Boooox*************/
+
+
+.gameBox{
+    position: relative;
+    min-height: 60vh;
+    width: 120em; /*it will be flexiable because this item is a flex item*/
+
+}
+.gameBox::before{
+    
+    content: "";
+    
+    background: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    opacity: 0.5;
+
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+.gameBox_items{
+    position: relative; /*If the outer DIV is not positioned absolute then the inner DIV "item", which is positioned absolute, does not obey the overflow hidden of the outer DIV.*/
+    top:5em;
+    min-height: 30vh;
+    overflow: hidden;
+    
+}
+
+
+.gameBox_items .item{
+    
+    border-radius: 0.5em;
+    z-index:0;
+
+}
+
+.gameBox_items .item-0{
+    position: absolute;
+    max-width: 30%; /*to make an absolute position box responsive using percentage values for width and relative position on the parent element in CSS.*/
+    min-height: 10vh;
+    opacity:0.6 ;
+    right:0;
+    left: 5%;
+    top:20%;
+    z-index: 1;
+    transition: all 0.15s  ease-in-out;
+}
+.gameBox_items .item-2{
+    position: absolute;
+    max-width: 30%;
+    min-height: 10vh;
+    opacity:0.6 ;
+    right: 5%;
+    left:65%;
+    top:20%;
+    z-index: 1;
+    transition: all 0.15s ease-in-out;
+
+
+}
+
+.gameBox_items .item-1{
+    position: absolute;
+    max-width: 40%;
+    min-height: 25vh ;
+    opacity: 1.0;
+    left: 30%;
+    right: 0;
+    z-index: 2;
+    transition: all 0.15s ease-in-out;
+
+}
+
+
+#gameTitleBox{
+    position: absolute;
+    top:65%;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+
+    font-size: var(--navSize);
+    color: var(--GameTextColor);
+
+    z-index: 1;
+
+}
+
+.gameBox_controllers{
+    position: absolute;
+    top:75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.gameBox_controllers .controller{
+    display: flex;
+    gap:0.7em;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gameBox_controllers .controller h3{
+    font-size: var(--navSize);
+    color :var(--infoColor);
+}
+
+.gameBox_controllers img{
+    max-width: 2em; 
+}
+
+
+
+
+
+
+
+/***************Banner2***************/
+
+
+.banner2{
+    position: relative;
+    width :100%;
+    min-height: 100vh;
+    padding: 0 5em;
+    background: linear-gradient(var(--GameTextColor),var(--infoColor));
+   
+    
+}
+
+.banner2 h1{
+
+    padding-top: 1.1em;
+    text-align: center;
+    font-size: 4em;
+    color: rgb(51, 71, 246);
+    letter-spacing: 0.1em;
+
+
+}
+
+.banner2 h2{
+
+    padding-top: 0.2em;
+    text-align: center;
+    font-size: 3em;
+    color: var(--infoColor);
+    letter-spacing: 0.1em;
+
+
+}
+
+
+.leaderboard_desc{
+
+    padding-top: 0.7em;
+    display: flex;
+    gap : 0.5em;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.leaderboard_desc h3{
+    font-size: var(--navSize);
+    color:  rgb(51, 71, 246);
+    padding-top: 0.2em;
+    letter-spacing: 0.1em;
+}
+
+
+
+/*dropdownmenu : https://www.youtube.com/watch?v=hBbrGFCszU4 */
+.dropdownMenu {
+    position: absolute;
+    left:80%;
+    top:25%;
+}
+.dropdownMenu  .select{
+    background-color: var(--GameTextColor);
+    padding: 0.5em 2em;
+    border-radius: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    cursor: pointer;
+    transition: background 0.5s;
+    border:  2px solid #d23f31;
+}
+.select .selected{
+    color:var(--infoColor);
+    font-weight: bold;
+    font-size: large;
+}
+
+.select:hover{
+    background-color: rgb(227, 160, 36)  ;
+}
+.select:hover .selected{
+    color: var(--GameTextColor);
+}
+
+.caret {
+    width:0;
+    height: 0;
+
+    border-left: 5px solid transparent;
+    border-right:5px solid transparent;
+    border-top: 5px solid var(--infoColor);
+
+    transition: transform 0.2s;
+
+
+
+}
+
+.select:hover .caret{
+    border-top: 5px solid var(--GameTextColor);
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+    transition: transform 0.2s;
+}
+
+.menu{
+    list-style: none;
+    background: var(--GameTextColor);
+    display: none;
+}
+
+.menu li{
+    font-size: large;
+    color:var(--infoColor);
+    padding:0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover{
+    background-color:  rgb(227, 160, 36);
+    color:var(--GameTextColor);
+}
+
+.menu .active{
+    background-color:  rgb(227, 160, 36);
+}
+
+.menu-open{
+    display: block;
+
+}
+
+
+
+/*leaderboard table*/ /*https://www.youtube.com/watch?v=Tm3Eny-FLe4*/
+
+.leaderboard_table{
+
+    padding-top: 2em;
+    max-width: 100%;
+    min-height: 50vh;
+    display: block;
+    left:0;
+    right:0;
+    margin: auto;
+
+}
+
+table{
+
+    width: 70%;
+    min-height: 50vh;
+    margin:1em;
+    color :rgb(51, 71, 246);
+    background: rgba(255,255,255,0.5);
+    left:0;
+    right:0;
+    margin: auto;
+    border-collapse: collapse;   /*https://stackoverflow.com/questions/2949992/how-do-i-remove-separation-between-rows-in-a-html-table*/
+
+
+}
+
+table thead{
+    background: rgba(255,255,255,0.5);
+    text-align: center; 
+
+}
+table thead tr td{
+    padding: 0.2em 0;
+
+}
+table tr td { 
+    font-size: var(--navSize);
+    box-shadow: 0 2px  rgba(255,255,255,0.5) ;
+
+}
+table tbody {
+    text-align: center;
+}
+
+table #you{
+    background: rgba(214, 217, 62, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 920px) and (min-width:720px) {
+  
+
+
+/********headeeeeeeeeer*********/
+
+
+/*when clicking boardlogo icon*/
+
+.boardINFO{
+
+    position: fixed;
+    display: none;
+    color : var( --infoColor);
+    font-size:  var(  --navSize);
+    flex-basis: 10em;
+    /*display: flex;*/
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+
+    inset: 0 0 0 50%;
+    background: var(--GameTextColor); 
+
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+
+
+/*****Banner****/
+
+.banner{
+    position: relative;
+    width :100%;
+    min-height: 93vh;
+    padding: 0 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+
+.banner::before {     /*https://coder-coder.com/background-image-opacity/#:~:text=One%20approach%20you%20can%20use,element%20of%20the%20parent%20element.&text=Since%20the%20pseudo%2Delement%20is,without%20affecting%20the%20text%20content.*/
+    content: "";
+    
+    background-image: var(--bannerBackground);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left top;  
+
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.25;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+
+/*********game Boooox*************/
+
+
+.gameBox{
+    position: relative;
+    min-height: 54vh;
+    width: 100%; /*it will be flexiable because this item is a flex item*/
+
+}
+.gameBox::before{
+    
+    content: "";
+    margin-top:2em ;
+
+    background: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    opacity: 0.5;
+
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+
+/*context*/
+
+.banner .context {
+
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.banner .context #gameTitle{
+    color : var(--GameTextColor);
+    font-size:  4em;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+
+
+
+/*****Banner2***/
+
+
+
+
+.leaderboard_table{
+
+    padding-top: 4em;
+    max-width: 100%;
+    min-height: 50vh;
+    display: block;
+    left:0;
+    right:0;
+    margin: auto;
+
+}
+
+table{
+
+    width: 90%;
+    min-height: 50vh;
+    margin:1em;
+    color :rgb(51, 71, 246);
+    background: rgba(255,255,255,0.5);
+    left:0;
+    right:0;
+    margin: auto;
+    border-collapse: collapse;   /*https://stackoverflow.com/questions/2949992/how-do-i-remove-separation-between-rows-in-a-html-table*/
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+@media  screen and (max-width: 719.99px) and (min-width:270px) {
+
+    
+/********headeeeeeeeeer*********/
+
+
+
+header{
+
+
+    position: sticky;
+    background:  linear-gradient(45deg, rgb(51, 51, 154) , red);
+    top:0;
+    left:0;
+
+    width:100%;
+    min-height: 4rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition: top 0.5s;
+
+}
+
+.logo{
+    
+    padding-left: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.logo span{ /*the span in header which holds the title name*/
+
+    padding-left: 0.2rem;
+    padding-top: 0.3rem;
+
+    text-align: center;
+    font-weight: bolder;
+    color: var(--GameTextColor );
+    font-size: 1em;
+}
+
+
+
+.nav{
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    justify-content: space-between;
+
+
+    flex-shrink: 1 ; /*to prevent the flex item from shrinking since the default is flex-shrink:1 */
+
+}
+
+.nav li{
+    padding-left: 1em;
+    list-style: none;
+}
+.nav li a{
+    text-decoration: 0;
+    color: var(--GameTextColor);
+    font-size: 1em;
+    font-weight: bolder;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+
+    padding:0.5em 0em ;
+
+
+}
+
+
+
+
+.nav .boardLogo{
+    position: relative;  /*because z-index needs a position property rather than static */
+    border:0;
+    z-index: 10;
+    padding:1em; 
+}
+
+
+
+
+/*when clicking boardlogo icon*/
+
+.boardINFO{
+
+    position: fixed;
+    display: none;
+    color : var( --infoColor);
+    font-size:  var(  --navSize);
+    flex-basis: 10em;
+    /*display: flex;*/
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    gap: 7rem;
+
+    inset: 0 0 0 30%;
+    background: var(--GameTextColor); 
+
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+
+
+/*****Banner****/
+
+.banner{
+    position: relative;
+    width :100%;
+    min-height: 90vh;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+
+.banner::before {     /*https://coder-coder.com/background-image-opacity/#:~:text=One%20approach%20you%20can%20use,element%20of%20the%20parent%20element.&text=Since%20the%20pseudo%2Delement%20is,without%20affecting%20the%20text%20content.*/
+    content: "";
+    
+    background-image: var(--bannerBackground);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left top;  
+
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.25;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+
+/*********game Boooox*************/
+
+
+.gameBox{
+    position: relative;
+    min-height: 54vh;
+    width: 100%; /*it will be flexiable because this item is a flex item*/
+
+}
+.gameBox::before{
+    
+    content: "";
+    margin-top:2em ;
+
+    background: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    opacity: 0.5;
+
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1; /*i put that to make the other children top this pseudo element*/
+}
+
+
+/*context*/
+
+.banner .context {
+
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0em 1em;
+    padding-bottom: 1em;
+}
+
+.banner .context #gameTitle{
+    color : var(--GameTextColor);
+    font-size:  3em;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+
+.banner .context .gameInfo{
+    padding-top: 0.4em;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    color : var(--GameTextColor);
+}
+.gameInfo span {
+
+    color : rgb(51, 71, 246);
+    font-size:  1.1em;
+    font-weight: bolder;
+
+}
+
+#gameDes{
+    padding-top: 0.4em;
+    color : rgb(246, 51, 74);
+    font-size:  1.5em;
+    font-weight: bolder;
+}
+
+
+
+
+
+/*****Banner2***/
+
+.banner2{
+    position: relative;
+    width :100%;
+    min-height: 100vh;
+    padding: 0 1em;
+    background: linear-gradient(var(--GameTextColor),var(--infoColor));
+   
+    
+}
+
+
+
+.dropdownMenu {
+    position: relative;
+    left: 0%;
+    top: 45%;
+}
+.menu{
+    list-style: none;
+    background: var(--GameTextColor);
+    display: none;
+    position: absolute;
+}
+.menu-open{
+    display: block;
+    position: absolute;
+}
+
+
+
+
+
+.leaderboard_table{
+
+    padding-top: 4em;
+    max-width: 100%;
+    min-height: 50vh;
+    display: block;
+    left:0;
+    right:0;
+    margin: auto;
+
+}
+
+table{
+
+    width: 100%;
+    min-height: 50vh;
+    margin:1em;
+    color :rgb(51, 71, 246);
+    background: rgba(255,255,255,0.5);
+    left:0;
+    right:0;
+    margin: auto;
+    border-collapse: collapse;   /*https://stackoverflow.com/questions/2949992/how-do-i-remove-separation-between-rows-in-a-html-table*/
+
+
+}
+
+
+
+.banner2 h1{
+
+    padding-top: 1.2em;
+    text-align: center;
+    font-size: 3em;
+    color: rgb(51, 71, 246);
+    letter-spacing: 0.1em;
+
+
+}
+
+.banner2 h2{
+
+    padding-top: 0.2em;
+    text-align: center;
+    font-size: 1.7em;
+    color: var(--infoColor);
+    letter-spacing: 0.1em;
+
+
+}
+
+
+.leaderboard_desc{
+
+    padding-top: 2.7em;
+    display: flex;
+    gap : 0.5em;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.leaderboard_desc h3{
+    font-size: 1.6em;
+    color:  rgb(51, 71, 246);
+    padding-top: 0.2em;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+
+
+
+#gameTitleBox{
+    position: absolute;
+    top:65%;
+    padding-top: 0.3em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+
+    font-size: var(--navSize);
+    color: var(--GameTextColor);
+
+    z-index: 1;
+
+}
+
+
+
+}

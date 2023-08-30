@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;   /*we set this in px , because objects' font size that we will set later will be in rem and it will be 1 rem = 12px so it will be adjustable*/
+
+}
+:root{
+    --GameTextColor :  #EFD469 ; 
+    --infoColor :  #d23f31 ;
+
+}
+
+
+body{
+    background:  url("../images/background.jpg");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  /*https://www.w3schools.com/cssref/playdemo.php?filename=playcss_background-position*/   
+
+    background-attachment: fixed;/*بيخلى الصورة ثابتة و بتدى ايفيكت لطيف
+    يعنى لو عملت scrol الصورة مش مش هاتجيب اخرها هاتفضل جايبة اول جزء ليها برده */
+
+
+    font-family: 'VT323', monospace;
+
+}
+
+
+
+.description{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    padding-top: 1.0em;
+    gap: 2em;
+
+}
+
+.description h1{
+    color: var(--GameTextColor);
+    font-size: 3rem;
+}
+
+.description h3{
+    color: var(--infoColor);
+    font-size: 1.5rem;
+}
+
+.description h2 {
+    color: var(--GameTextColor);
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+
+
+#gameBoard{
+ 
+    margin-left: auto;
+    margin-right: auto;    /*centering things :  set the margins to 'auto'*/
+    margin-top: 1.2em;
+    max-width: 50%;
+    min-height: auto;
+    
+    display: flex;
+    
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border:3px solid #d23f31 ;
+    border-radius: 6px;
+
+   background-color: black ;
+
+    position: relative;
+
+    overflow: hidden;
+
+
+
+}
+
+#gameBoard #startBanner{
+    
+    position: absolute; 
+    max-width: 100% ;
+    min-height: 100%;
+    content: url(images/StartGame.png);
+
+    /*https://www.educative.io/answers/how-to-center-an-absolutely-positioned-element-inside-its-parent*/
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    z-index : 10;  /*https://stackoverflow.com/questions/1806421/how-to-get-a-parent-element-to-appear-above-child*/
+}
+
+#gameBoard #startGame{
+    width : 45%;
+    height:  25%;
+    content: url(images/startButton.png);
+
+    position: absolute ;
+
+    left:0 ;
+    right :0 ; 
+    margin: auto;
+
+    top : 35%;
+    z-index: 10;
+}
+
+#topBoard{
+    display:grid;
+    grid-template-columns: auto 1fr 0.5fr;
+    grid-template-rows: auto;
+    
+   
+
+
+
+    /*position: relative;*/
+
+}
+
+#topBoard #pause{
+
+    padding-top: 0.2em;
+    justify-self: end;
+    width : 3em;
+    height: 3em;
+}
+#topBoard #replay1{
+
+    padding-top: 0.2em;
+    justify-self: center;
+    width : 3em;
+    height: 3em;
+}
+
+ #score{   /*the position here will be relative by default as the parent, and this makes the topBoard has a space block given by its parent 'flex' and this block will have the same size as score content , because the other two images in topBoard are absolute positioned */ 
+
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size:2em;
+    align-self: center;
+    color:green;
+}
+
+
+
+
+
+#board {
+    margin: 0.5em 0.5em;
+    position:relative;
+}
+
+
+#board #replay {
+
+    width : 15%;
+    height:  25%;
+    position: absolute ;
+
+    left:0 ;
+    right :0 ; 
+    margin: auto;
+
+    top : 40%;
+    z-index: 10;
+
+
+}

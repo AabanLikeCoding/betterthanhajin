@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Snake Game</title>
+    <link rel="stylesheet"href="style.css">
+    <link rel="icon" href="../images/icon.svg">
+
+
+    <script src="code.js" defer></script>
+
+
+    <!--for fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="description">
+        <h1>The Snake Game</h1>
+        <h3>introduced : 1997 </h3>
+        <h2>move the snake so it eats the fruit and grow. If the snake touches itself or the border, IT DIES.</h2>
+
+    </div>
+
+
+    <div id = "gameBoard">
+
+        <div id = topBoard>
+        <p id="score"> score is : 0</p>
+    
+        <img src="images/pause.png" id ='pause' onclick="gamePause()">
+        <img src="images/replay.png" id = 'replay1'  onclick="gameReplay1()">
+        </div>
+
+        <canvas id="board">
+        
+        </canvas>
+
+    </div>
+</body>

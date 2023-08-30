@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;   /*we set this in px , because objects' font size that we will set later will be in rem and it will be 1 rem = 12px so it will be adjustable*/
+
+}
+:root{
+    --GameTextColor :  #EFD469 ; 
+    --infoColor :  #d23f31 ;
+
+}
+
+
+body{
+    background:  url("../images/background.jpg");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  /*https://www.w3schools.com/cssref/playdemo.php?filename=playcss_background-position*/   
+
+    background-attachment: fixed;/*بيخلى الصورة ثابتة و بتدى ايفيكت لطيف
+    يعنى لو عملت scrol الصورة مش مش هاتجيب اخرها هاتفضل جايبة اول جزء ليها برده */
+
+
+    font-family: 'VT323', monospace;
+
+}
+
+ 
+
+
+h1{       /*https://stackoverflow.com/questions/7948333/css-position-text-in-the-middle-of-the-page*/
+    position: absolute;
+    color: var(--GameTextColor);
+    font-size: 9vw; /*The text size can be set with a vw unit, which means the "viewport width".*/
+    text-align: center;
+    top: 45%;
+    width: 100%;
+  
+} 

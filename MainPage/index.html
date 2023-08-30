@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalgia GamingHUB</title>
+
+    <link rel="stylesheet"href="style.css">
+    <link rel="icon" href="../images/icon.svg">
+
+
+    <script src="code.js" defer></script>
+
+
+    <!--for fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <!---for icons-->
+
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+    <link href="assets/css/brands.css" rel="stylesheet">
+    <link href="assets/css/solid.css" rel="stylesheet">
+
+
+
+</head>
+
+
+
+<body>
+    <header>
+        <div  class ="logo">
+    
+            <img src="../images/icon.svg"class="iconlogo"/>
+            
+            <!-- <img src="../images/icon.svg"class="iconlogo"/> -->
+            <span>Nostalgia GamingHUB</span>
+        </div>
+
+        <ul class="nav">
+
+            <li><a href="../under dev/index.html"target='_blank'>sign up</a></li>
+            <li><a href="../under dev/index.html"target='_blank'>log in</a></li>
+            <li class="boardLogo" ><a><i class="fa-solid fa-users-between-lines fa-lg"></i></a></li> <!--https://fontawesome.com/v4/examples/#:~:text=To%20increase%20icon%20sizes%20relative,%2C%20or%20fa%2D5x%20classes.&text=If%20your%20icons%20are%20getting,you%20have%20sufficient%20line%2Dheight.-->
+        </ul>
+
+        <!-- when clicking the board logo -->
+        <div id = "boardINFO" class="boardINFO" data-visible="false">
+            <h2>
+                log in to view your board and scores!
+            </h2>
+
+            <ul class="boardSign">
+
+                <li><a href="../under dev/index.html"target='_blank'>sign up</a></li>
+                <li><a href="../under dev/index.html"target='_blank'>log in</a></li>
+            </ul>
+    
+        </div> 
+    </header>
+
+    <div class="banner">
+       
+        <div class="gameBox">
+            <div class="gameBox_items">
+                <a href=' ../Flappy Bird/index.html' target="_blank" class="playButtonlink"><img class="item item-0" data-index="1" alt =""/></a>
+                <a href='../WhatchaMole/index.html' target="_blank" class="playButtonlink"><img class="item item-1" data-index="2" alt =""/></a>
+                <a href='../The Snake Game/index.html' target="_blank" class="playButtonlink"><img class="item item-2" data-index="3" alt =""/></a>
+
+            </div>
+
+            <h1 id="gameTitleBox">Whatch a Mole</h1>
+            <div class="gameBox_controllers">
+                
+                <a class="controller"onclick="selectPrevItem()">
+                    <img src="images/pervious.png"/>
+                    <h3>Pervious</h3>
+                </a>
+            
+            
+                <a class="controller"onclick="selectNextItem() ">          
+                    <h3>Next</h3>
+                    <img src="images/next.png"/>
+                </a>
+                
+            </div>
+
+        </div>
+        
+        <div class="context">
+            <!-- <img src="images/whockMole.png"alt=""class="gameBanner"> -->
+            <h2 id="gameTitle">Whatch a Mole</h2>
+            <div class="gameInfo">
+            <span id="date">1976</span><span id="skills">Skills : be quick and sharp</span>
+            </div>
+
+            <p id="gameDes">
+                kick the mole head , but don't kick the bomb!
+                you need also to make sure that the bomb is not hiding behind the mole :) !
+            </p>
+
+            <div class="playButton">
+                <img src="../images/icon.svg"class="iconlogo "/>
+                <a href='../WhatchaMole/index.html' target="_blank" id="playButtonlink">Play & Score</a>
+            </div>
+
+            <h3>Disclaimer : Play on Laptop, No phones 'yet!'</h3>
+        </div>
+
+        
+    </div>
+
+
+
+    <div class="banner2">
+        <h1>Be the Master of old Games</h1>  
+        <h2>-- Own The Nostalgia --</h2>
+        
+        <div class="leaderboard">
+
+            <div class="leaderboard_desc">
+                <i class="fa-solid fa-chess-queen fa-2x" style="color: #d23f31"></i>
+                <h3 id="leaderboardName">Main LeaderBoard</h3>
+                <div class="dropdownMenu">
+                    <div class="select">
+                        <span class="selected">Main LeaderBoard</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li class="active">Main LeaderBoard </li>
+                        <li>Whatch a Mole</li>
+                        <li>The Snake Game</li>
+                        <li>Flappy Bird</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="leaderboard_table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td><i class="fa-solid fa-chess-queen" style="color: #d23f31"></i>
+                                </td>
+                                <td>PLAYER</td>
+                                <td>SCORE</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="winner">1</td>
+                                <td>omar</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td id="second">2</td>
+                                <td>ahmed</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td id="third">3</td>
+                                <td>sokar</td>
+                                <td>700</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>logy</td>
+                                <td>600</td>
+                            </tr>
+                            <tr id="you">
+                                <td>5</td>
+                                <td>Nouran</td>
+                                <td>255</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+            </div>
+            
+
+
+        </div>
+    </div>
+    
+    
+    
+
+
+</body>
+</html>
